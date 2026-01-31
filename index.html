@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revealed Word of God Global Ministry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #e63946;
+            --accent: #f4a261;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo-image {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518834103327-0d0b5ee6ea7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Leaders Section */
+        .leaders-section {
+            background-color: var(--light);
+        }
+        
+        .leaders-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .leader-card {
+            text-align: center;
+            max-width: 300px;
+        }
+        
+        .leader-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+        }
+        
+        .leader-card h3 {
+            color: var(--secondary);
+        }
+        
+        .leader-title {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        /* Branches Section */
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .branch-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .branch-card h3 {
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .branch-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Schedule Section */
+        .schedule-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .schedule-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .schedule-list {
+            list-style: none;
+        }
+        
+        .schedule-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .time {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Monthly Activities */
+        .activities-section {
+            background-color: var(--light);
+        }
+        
+        .activities-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+        
+        .activity-month {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .activity-month h3 {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .activity-list {
+            list-style: none;
+        }
+        
+        .activity-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-date {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .gallery-section .section-title h2 {
+            color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Praise & Worship Section */
+        .praise-section {
+            background-color: var(--light);
+        }
+        
+        .praise-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .praise-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .praise-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .praise-image {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: var(--shadow);
+        }
+        
+        .praise-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .praise-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icon.facebook {
+            background-color: #1877f2;
+        }
+        
+        .social-icon.youtube {
+            background-color: #ff0000;
+        }
+        
+        .social-icon.telegram {
+            background-color: #0088cc;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Media Section */
+        .media-highlight {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .media-highlight h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .media-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .media-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .media-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .praise-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+            }
+            
+            nav ul li {
+                margin: 0.8rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+            
+            .schedule-container {
+                flex-direction: column;
+            }
+            
+            .logo-image {
+                height: 50px;
+            }
+            
+            .praise-images {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <!-- Replace with your actual logo -->
+                <img src="1768663947662.jpg" alt="Revealed Word of God Global Ministry Logo" class="logo-image">
+                <div class="logo-text">
+                    <h1>Revealed Word of God</h1>
+                    <p>Global Ministry (Inc)</p>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#leaders">Leaders</a></li>
+                    <li><a href="#branches">Branches</a></li>
+                    <li><a href="#praise">Praise & Worship</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Revealed Word of God Global Ministry</h1>
+            <p>Located at Revealed Word Chapel, J.K. Atanda Road, High School Area, Ogbomoso, Oyo State, Nigeria. A place of worship, fellowship, and spiritual growth.</p>
+            <a href="#activities" class="cta-button">View Our Activities</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Ministry</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+
+                    <p><B>MISSION STATEMENT</B></p>
+                    <p>To raise and develop believers of christ that are fulfilling divine purpose  for</p>
+                    <p>their lives and making impact on earth and enter the kingdom of God at the end.</p>
+                    <br>
+                    <p><b>VISSION STATEMENT</b></p>
+                    <p>To teach believers, raise purposeful leaders and heal the sick in order to develop people that are holistically </p>
+                    <p>equipped; spirit, souls and body for the fulfillment of destiny and making heaven at the end</p>
+                    <br />
+                    <p>Join us as we grow together in faith and serve our community with love and compassion.</p>
+                </div>
+                <div class="about-image">
+                    <img src="1769796644163.jpg" alt="Church gathering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaders Section -->
+    <section class="leaders-section" id="leaders">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leaders</h2>
+            </div>
+            <div class="leaders-container">
+                <div class="leader-card">
+                    <img src="IMG-20260130-WA0050.jpg" alt="Pastor Adeolu Afolabi" class="leader-image">
+                    <h3>Pastor Prof. Adeolu Afolabi</h3>
+                    <p class="leader-title">Senior Pastor & Set-Man</p>
+                    <p>Visionary leader and teacher of God's Word with decades of ministry experience.</p>
+                </div>
+                <div class="leader-card">
+                    <img src="IMG-20260130-WA0049.jpg" alt="Prof. Mrs.Adeolu Afolabi" class="leader-image">
+                    <h3>Pastor Prof. Mrs. Adeolu Afolabi</h3>
+                    <p class="leader-title">Co-Pastor & Ministry Leader</p>
+                    <p>Dedicated minister and women's leader with a heart for discipleship and family ministry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Ministry Centres</h2>
+            </div>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-church"></i></span> Main Chapel</h3>
+                    <p><strong>Location:</strong> Revealed Word Chapel, J.K. Atanda Road, High School Area, Ogbomoso, Oyo State, Nigeria.</p>
+                    <p><strong>Website:</strong> <a href="http://www.revealedwordministries.net" target="_blank">www.revealedwordministries.net</a></p>
+                </div>
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-map-marker-alt"></i></span> Jesulaake Centre</h3>
+                    <p><strong>Location:</strong> Along Samsudeen Grammar School, Owolaake, Ogbomoso-Nigeria</p>
+                    <p><strong>Services:</strong> Sunday services and special programs</p>
+                </div>
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-university"></i></span> Discipleship Centre</h3>
+                    <p><strong>Location:</strong> Behind NUT Plaza, LAUTECH, Ogbomoso.</p>
+                    <p><strong>Focus:</strong> Youth and student discipleship</p>
+                </div>
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-pray"></i></span> Olorunsogo/Restore Area</h3>
+                    <p><strong>Location:</strong> Olorunsogo/Restore Area, Ogbomoso-Nigeria.</p>
+                    <p><strong>Focus:</strong> Community outreach and evangelism</p>
+                </div>
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-graduation-cap"></i></span> Mayday College</h3>
+                    <p><strong>Location:</strong> Jagun Agbosoye, Ogbegun Area, Ogbomoso</p>
+                    <p><strong>Focus:</strong> Youth ministry and educational programs</p>
+                </div>
+                <div class="branch-card">
+                    <h3><span class="branch-icon"><i class="fas fa-magic"></i></span> Land of Wonders</h3>
+                    <p><strong>Location:</strong> Temidire Area, Ogbomoso</p>
+                    <p><strong>Focus:</strong> Prayer and revival meetings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Praise & Worship Section -->
+    <section class="praise-section" id="praise">
+        <div class="container">
+            <div class="section-title">
+                <h2>Praise & Worship</h2>
+            </div>
+            <div class="praise-container">
+                <div class="praise-text">
+                    <h3>Experience God's Presence Through Worship</h3>
+                    <p>At Revealed Word of God Global Ministry, we believe worship is a vital part of our relationship with God. Our praise and worship sessions are filled with the power of the Holy Spirit, creating an atmosphere where lives are transformed.</p>
+                    <p>Join us every Sunday as we lift up holy hands and voices in praise to our King. Our worship team is dedicated to leading the congregation into the presence of God through contemporary and traditional worship songs.</p>
+                    <p>Experience the joy of worship, the power of prayer, and the transformation that comes from encountering God in our services.</p>
+                    <a href="#contact" class="cta-button">Join Our Worship Service</a>
+                </div>
+                <div class="praise-images">
+                    <div class="praise-image">
+                        <img src="1769796697922.jpg" alt="Praise and Worship Team">
+                        </div>
+                    <div class="praise-image">
+                        <img src="1769796676839.jpg" alt="Congregation Worship">
+                       </div>
+                    <div class="praise-image">
+                      <img src="1769798724602.jpg" alt="Worship Band">
+                    </div>
+                    <div class="praise-image">
+                     <img src="1769798733133.jpg" alt="Praise Celebration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekly Schedule</h2>
+            </div>
+            
+            <div class="schedule-container">
+                <div class="schedule-card">
+                    <h3>Regular Programme</h3>
+                    <ul class="schedule-list">
+                        <li>
+                            <span><strong>Sunday Service</strong></span>
+                            <span class="time">9:00am</span>
+                        </li>
+                        <li>
+                            <span><strong>Interdenominational School of the Word</strong> (Tuesdays)</span>
+                            <span class="time">4:30pm</span>
+                        </li>
+                        <li>
+                            <span><strong>Power Encounter</strong> (Thursdays)</span>
+                            <span class="time">4:30pm</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>Monthly Programme</h3>
+                    <ul class="schedule-list">
+                        <li>
+                            <span><strong>Hour of Perfection</strong> (Every 1st of Month)</span>
+                            <span class="time">6:00am</span>
+                        </li>
+                        <li>
+                            <span><strong>Hours of Wonders</strong> (Last Saturday)</span>
+                            <span class="time">10:00am</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>Media Broadcast</h3>
+                    <ul class="schedule-list">
+                        <li>
+                            <span><strong>Parrot F.M. Ogbomoso</strong> (Sundays)</span>
+                            <span class="time">3:30pm</span>
+                        </li>
+                        <li>
+                            <span><strong>OSBC F.M. Osogbo</strong> (Mondays)</span>
+                            <span class="time">6:30pm</span>
+                        </li>
+                        <li>
+                            <span><strong>NTA Ogbomoso</strong> (Sundays)</span>
+                            <span class="time">5:30pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Activities Section -->
+    <section class="activities-section" id="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Monthly Activities</h2>
+            </div>
+            
+            <div class="activities-container">
+                <div class="activity-month">
+                    <h3>February Activities</h3>
+                    <ul class="activity-list">
+                        <li><span class="activity-date">Sunday, 1st</span> - Hour of Perfection</li>
+                        <li><span class="activity-date">Sunday, 1st</span> - Stewards' Meeting</li>
+                        <li><span class="activity-date">Friday, 6th</span> - Power Night</li>
+                        <li><span class="activity-date">Saturday, 7th</span> - Virtuous Women Meeting</li>
+                        <li><span class="activity-date">Sunday, 8th</span> - Couples' Refreshing Programme</li>
+                        <li><span class="activity-date">Wednesday, 11th</span> - Pastors' Meeting</li>
+                        <li><span class="activity-date">Friday, 13th</span> - Groups A & B Stewards' Vigil</li>
+                        <li><span class="activity-date">Sunday, 15th</span> - Feast of Fat Things</li>
+                        <li><span class="activity-date">Monday, 16th</span> - School of the Spirit/School of Discipleship</li>
+                        <li><span class="activity-date">Fri. 20th - Sat. 21st</span> - Singles Experience Time</li>
+                        <li><span class="activity-date">Saturday, 28th</span> - Hours of Wonders</li>
+                    </ul>
+                </div>
+                
+                <div class="activity-month">
+                    <h3>March Activities</h3>
+                    <ul class="activity-list">
+                        <li><span class="activity-date">Sunday, 1st</span> - Hour of Perfection</li>
+                        <li><span class="activity-date">Friday 6th</span> - Power Night</li>
+                        <li><span class="activity-date">Fri. 6th - Sun. 8th</span> - Yoruba School of Leadership Development/Yoruba School of Business Leadership (Week 1)</li>
+                        <li><span class="activity-date">Sunday, 8th</span> - Stewards' Meeting</li>
+                        <li><span class="activity-date">Wednesday, 11th</span> - Pastors' Meeting</li>
+                        <li><span class="activity-date">Friday 13th</span> - Group A Steward's Vigil</li>
+                        <li><span class="activity-date">Fri.13th - Sun. 15th</span> - YSLD/YSBL (Week 2)</li>
+                        <li><span class="activity-date">Saturday, 14th</span> - Prayer School at Aapiti</li>
+                        <li><span class="activity-date">Sunday 15th</span> - Feast of Fat Things</li>
+                        <li><span class="activity-date">Monday, 16th</span> - School of the Spirit/School of Discipleship</li>
+                        <li><span class="activity-date">Friday 20th</span> - Group B Steward's Vigil</li>
+                        <li><span class="activity-date">Fri. 20th - Sun. 22nd</span> - YSLD/YSBL (Wk. 3)</li>
+                        <li><span class="activity-date">Fri. 27th - Sun. 29th</span> - YSLD/YSBL (Wk. 4)</li>
+                        <li><span class="activity-date">Saturday, 28th</span> - Hours of Wonders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ministry Gallery</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                   
+                    <img src="1769796790861.jpg" alt="Church Service">
+                    <div class="gallery-caption">Sunday Service Gathering</div>
+                </div>
+                <div class="gallery-item">
+                    
+                    <img src="1769796704806.jpg" alt="Praise and Worship">
+                    <div class="gallery-caption">Praise & Worship Session</div>
+                </div>
+                <div class="gallery-item">
+                   
+                    <img src="1769796774428.jpg" alt="Bible Study">
+                    <div class="gallery-caption">Bible Study & Teaching</div>
+                </div>
+                <div class="gallery-item">
+                   
+                    <img src="1769796685006.jpg" alt="Prayer Meeting">
+                    <div class="gallery-caption">Prayer & Intercession</div>
+                </div>
+                <div class="gallery-item">
+                   
+                    <img src="1769796745783.jpg" alt="Youth Enpowerment Summit">
+                    <div class="gallery-caption">Youth Enpowerment summit</div>
+                </div>
+                <div class="gallery-item">
+                  
+                    <img src="1769796758367.jpg" alt="School Of Leadership Development">
+                    <div class="gallery-caption"> School of Leadership Development</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Main Location</h3>
+                            <p>Revealed Word Chapel, J.K. Atanda Road, High School Area, Ogbomoso, Oyo State, Nigeria</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Phone Numbers</h3>
+                            <p>08033616165</p>
+                            <p>08036669764</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email & Website</h3>
+                            <p><a href="mailto:revealedwordng@gmail.com" style="color: var(--primary);">revealedwordng@gmail.com</a></p>
+                            <p><a href="http://www.revealedwordministries.net" target="_blank" style="color: var(--primary);">www.revealedwordministries.net</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://facebook.com/rwggm" target="_blank" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://youtube.com/@rwggm" target="_blank" class="social-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://t.me/adeoluafolabi" target="_blank" class="social-icon telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Revealed Word of God</h3>
+                    <p>Global Ministry (Inc) dedicated to spreading the Gospel and making disciples of all nations. Join us as we worship, grow, and serve together.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#leaders">Our Leaders</a></li>
+                        <li><a href="#branches">Our Branches</a></li>
+                        <li><a href="#praise">Praise & Worship</a></li>
+                        <li><a href="#activities">Monthly Activities</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Service Times</h3>
+                    <ul class="footer-links">
+                        <li><a href="#schedule">Sunday: 8:00am</a></li>
+                        <li><a href="#schedule">Tuesday Bible School: 4:30pm</a></li>
+                        <li><a href="#schedule">Thursday Power Encounter: 4:30pm</a></li>
+                        <li><a href="#schedule">Monthly Programs</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Revealed Word of God Global Ministry (Inc). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mainMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For now, we'll show a success message
+            alert(`Thank you ${name}! Your message has been sent successfully. We will contact you at ${email} soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearSpan = document.querySelector('.copyright');
+            if (yearSpan) {
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2026', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
